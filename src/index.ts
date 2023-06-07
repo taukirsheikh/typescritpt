@@ -14,3 +14,7 @@ let is_published =true
 
 //if not initialized
 let level;
+
+function rednder (document){
+    console.log(document)
+}
