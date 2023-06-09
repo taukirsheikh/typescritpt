@@ -17,4 +17,20 @@ const medium = 2;
 const large = 3;
 let mySize = "m";
 console.log(mySize);
+function calculateTax(income, taxYear = 2022) {
+    if (taxYear < 2022)
+        return income * 1.2;
+    return 1.4;
+}
+calculateTax(10000);
+let employee = {
+    id: 1,
+    name: 'student',
+    retire: (date) => {
+        console.log(date);
+    }
+};
+employee.name = 'sheikh';
+console.log(employee);
+employee.retire(new Date);
 //# sourceMappingURL=index.js.map

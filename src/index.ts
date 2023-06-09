@@ -68,12 +68,41 @@ console.log(mySize) // output => m
 // if we dont retuen then the function retuns void 
 // when we retun then it becomes of that return type
 //  but we should anotate the function on its retun type
-function calculateTax(income : number) : number{
+function calculateTax(income : number, taxYear=2022) : number {
+                                        // the ? makes  it optiona
 
-    if (income < 50_000)
+    if (taxYear < 2022)
+    // if ((taxYear || 2022) < 2022) used for or but default argument is better for making optional
 
-    return 0
+    return income * 1.2
     //undefined it will retuns if the if condition is not true
     // we have compiler options for this called noImplicitReturns
-
+    return 1.4
 }
+
+calculateTax(10_000)
+
+
+// object 
+
+let employee :{
+ readonly  id:number , // when we add readonly then it makes it unmodifiable
+    // name ?:string //making it optional
+    name:string,
+    retire:(date:Date) => void
+
+} = {
+    id :1,
+    name:'student',
+    retire:(date:Date) => {
+        console.log(date)
+    }
+   
+   
+}
+
+employee.name='sheikh' // trying to access the name property and giving new value to it 
+console.log(employee)
+employee.retire(new Date) // accessing and passing new date  to the retire method
+
+// employee.id=0
