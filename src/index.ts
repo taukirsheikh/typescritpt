@@ -183,3 +183,47 @@ type Quantity= 50 | 100
 let quantity : Quantity =100  // 50 or 100
 
 type Metric = 'cm' | 'inch'
+
+// Nullable TYPES
+
+// working with null values
+function greet (name :string | null  | undefined){
+    if(name)
+    console.log(name.toUpperCase())
+    else
+    console.log('Hello')
+}
+// after adding union of null we can pass null value but we cant pass the undefined as it is not a valid value
+// to pass undifiend as well you can use the union operator and add the undefined
+greet(null) // comes from strict Null checks , if its flase in config then it wont show the null error by defaults
+greet(undefined)
+
+// Optional chaining
+
+type Customer ={
+    birthday?:Date // making the birthday property optional with ?
+}
+function getCustomer (id: number) : Customer | null |undefined{
+    return id===0 ? null : {birthday:new Date()}
+}
+
+let customer =getCustomer(1) // undefined when 0
+// if (customer!==null && customer!==undefined)
+// we can remote the above statement and use 
+// Optional property access operator ?
+    // console.log(customer) out is object with date inside
+    console.log(customer?.birthday) // accessing the value from the returned object
+    console.log(customer?.birthday?.getFullYear()) // THE BIRTHDAY  property might possibly  be undefined so  ? is used
+
+
+    // Optional element access operator
+// useful when dealing with arrays
+// if (customer!==null and customer!==undefiend) {
+//         customer[0]
+//         customer?.[0] alternative of above if statement
+
+//Optional call 
+
+// let log :any=(message :string) => console.log(message)
+let log :any=null
+log?.('a') // only executes when log is refrencing an actual fucntion other wise we get undefined
