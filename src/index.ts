@@ -106,3 +106,80 @@ console.log(employee)
 employee.retire(new Date) // accessing and passing new date  to the retire method
 
 // employee.id=0
+
+
+
+
+
+// Advanced types
+
+// if we wann create another employee object then we have to repeat the employee type anotation structure
+// but we should implement DRY and shapes of objects might be different
+
+// type alias
+
+// it gives shape of the employee object
+type Employee ={
+    readonly  id:number , 
+    name:string,
+    retire:(date:Date) => void
+
+
+}
+
+let worker : Employee = {
+    id :1,
+        name:'student',
+        retire:(date:Date) => {
+            console.log(date)
+        }
+}
+
+
+//Union Types
+//  | is used as OR
+
+function kgToLbs(weight:number| string) : number
+{
+    //narrowing
+    if (typeof weight ==='number')
+   return weight*2.2
+
+   else{
+    return parseInt(weight)*2.2 // takes the number only and stops at string 
+   }
+
+}
+kgToLbs(10)
+console.log(kgToLbs('10kg'))
+
+
+//Intersection Types
+
+
+type Draggable ={
+    drag:()=>void
+}
+
+type Resizable ={
+    resize:()=>void
+}
+
+type UIWidget = Draggable & Resizable
+
+let textBox : UIWidget ={
+    drag:()=>{},
+    resize:()=>{}
+
+}
+
+
+
+//Literal Types (exact , specific)
+
+type Quantity= 50 | 100
+
+// let quantity : 50 |100 =100  // 50 or 100
+let quantity : Quantity =100  // 50 or 100
+
+type Metric = 'cm' | 'inch'

@@ -33,4 +33,20 @@ let employee = {
 employee.name = 'sheikh';
 console.log(employee);
 employee.retire(new Date);
+let worker = {
+    id: 1,
+    name: 'student',
+    retire: (date) => {
+        console.log(date);
+    }
+};
+function kgToLbs(weight) {
+    if (typeof weight === 'number')
+        return weight * 2.2;
+    else {
+        return parseInt(weight) * 2.2;
+    }
+}
+kgToLbs(10);
+console.log(kgToLbs('10kg'));
 //# sourceMappingURL=index.js.map
